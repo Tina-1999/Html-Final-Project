@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hanfu Clothing</title>
+    <style>
+        /* Add CSS styling for the image map areas */
+        #hanfu-map area {
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #hanfu-map area:hover {
+            opacity: 1.0;
+        }
+        /* Add CSS styling for the rollover images */
+        .rollover {
+            position: absolute;
+            display: none;
+        }
+        #MeiTing:hover + .rollover-meiting {
+            display: block;
+        }
+        #ShuTing:hover + .rollover-shuting {
+            display: block;
+        }
+        #YuTing:hover + .rollover-yuting {
+            display: block;
+        }
+        /* Add CSS styling for header and footer */
+        header, footer {
+            background-color: #F2E2CF;
+            padding: 20px;
+        }
+        h1 {
+            color: #A6926D;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 10px;
+        }
+        nav a {
+            color: #62493C;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        nav a:hover {
+            color: #A6926D;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #F2E2CF;
+            padding: 20px;
+            font-weight: bold;
+            color: #62493C;
+        }
+        /* Add CSS styling for the main image */
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img#hanfu-all {
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Ting's Hanfu Clothing</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="customized.html">Customized</a></li>
+                <li><a href="checkout.html">Check Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Add the image map to the main content -->
+        <img src="hanfu-all.jpg" usemap="#hanfu-map" id="hanfu-all">
+        <map name="hanfu-map" id="hanfu-map">
+            <!-- Define the clickable areas of the image map -->
+            <area id="MeiTing" shape="rect" coords="50,50,200,400" alt="Mei Ting" href="meiting-rollover.jpg">
+            <area id="ShuTing" shape="rect" coords="250,50,400,400" alt="Shu Ting" href="shuting-rollover.jpg" >
+            <area id="YuTing" shape="rect" coords="450,50,600,400" alt="Yu Ting" href="yuting-rollover.jpg" >
+        </map>
+        <!-- Add the rollover images to the main content -->
+        <img src="meiting-rollover.jpg" alt="Mei Ting Rollover"  class="rollover rollover-meiting">
+        <img src="shuting-rollover.jpg" alt="Shu Ting Rollover" class="rollover rollover-shuting">
+        <img src="yuting-rollover.jpg" alt="Yu Ting Rollover" class="rollover rollover-yuting">
+    </main>
+    <footer>
+        <p>&copy; 2023 Ting's Hanfu Clothing</p>
+    </footer>
+</body

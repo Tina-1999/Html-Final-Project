@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Order Completed - Hanfu Clothing</title>
+	<link rel="stylesheet" type="text/css" href="checkout.css">
+</head>
+<body>
+	<header>
+		<h1>Ting's Hanfu Clothing</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="customized.html">Customized</a></li>
+				<li><a href="checkout.html">Check Out</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<h2>Thank You for Your Order!</h2>
+		<p>Your order has been processed and will be shipped to the address provided within the next 3-5 business days.</p>
+		<p>Order Summary:</p>
+		<ul>
+			<li>Name: <span id="name"></span></li>
+			<li>Email: <span id="email"></span></li>
+			<li>Address: <span id="address"></span></li>
+			<li>Credit Card Number: **** **** **** <span id="card"></span></li>
+			<li>Expiration Date: <span id="expiry"></span></li>
+		</ul>
+	</main>
+	<footer>
+		<p>&copy; 2023 Ting's Hanfu Clothing</p>
+	</footer>
+
+	<script>
+		var params = new URLSearchParams(window.location.search);
+		document.getElementById("name").innerHTML = params.get("name");
+		document.getElementById("email").innerHTML = params.get("email");
+		document.getElementById("address").innerHTML = params.get("address");
+		document.getElementById("card").innerHTML = params.get("card").slice(-4);
+		document.getElementById("expiry").innerHTML = params.get("expiry");
+	</script>
+</body>
+</html>

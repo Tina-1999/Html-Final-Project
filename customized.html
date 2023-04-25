@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customize Your Hanfu Clothing</title>
+	<link rel="stylesheet" type="text/css" href="customized.css">
+</head>
+<body>
+	<header>
+		<h1>Ting's Hanfu Clothing</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="customized.html">Customized</a></li>
+				<li><a href="checkout.html">Check Out</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<h2>Customize Your Own Hanfu Clothing</h2>
+		<form action="checkout.html">
+			<label for="color">Choose a Color:</label>
+			<select id="color" name="color">
+				<option value="red">Red</option>
+				<option value="blue">Blue</option>
+				<option value="green">Green</option>
+				<option value="purple">Purple</option>
+			</select>
+			<label for="size">Choose a Size:</label>
+			<select id="size" name="size">
+				<option value="small">Small</option>
+				<option value="medium">Medium</option>
+				<option value="large">Large</option>
+				<option value="xlarge">X-Large</option>
+			</select>
+			<label for="quantity">Quantity:</label>
+			<input type="number" id="quantity" name="quantity" min="1" max="10">
+			<label for="material">Choose a Material:</label>
+			<select id="material" name="material">
+				<option value="silk">Silk</option>
+				<option value="cotton">Cotton</option>
+				<option value="linen">Linen</option>
+				<option value="wool">Wool</option>
+			</select>
+			<label for="fabric">Choose a Fabric:</label>
+			<select id="fabric" name="fabric">
+				<option value="plain">Plain</option>
+				<option value="embroidered">Embroidered</option>
+				<option value="printed">Printed</option>
+				<option value="jacquard">Jacquard</option>
+			</select>
+			<button type="submit" id="add-to-cart">Add to Cart</button>
+		</form>
+	</main>
+	<footer>
+		<p>&copy; 2023 Ting's Hanfu Clothing</p>
+	</footer>
+   <script>
+  // Get references to the form elements
+  const colorSelect = document.getElementById('color');
+  const sizeSelect = document.getElementById('size');
+  const quantityInput = document.getElementById('quantity');
+  const materialSelect = document.getElementById('material');
+  const fabricSelect = document.getElementById('fabric');
+  const addToCartBtn = document.getElementById('add-to-cart');
+  
+  // Define the price for each option
+  const prices = {
+    color: {
+      red: 50,
+      blue: 55,
+      green: 60,
+      purple: 65
+    },
+    size: {
+      small: 70,
+      medium: 75,
+      large: 80,
+      xlarge: 85
+    },
+    material: {
+      silk: 100,
+      cotton: 90,
+      linen: 80,
+      wool: 120
+    },
+    fabric: {
+      plain: 0,
+      embroidered: 20,
+      printed: 15,
+      jacquard: 25
+    }
+  };
+  
+  // Define a function to calculate the total price
+  function calculateTotalPrice() {
+    const colorPrice = prices.color[colorSelect.value];
+    const sizePrice = prices.size[sizeSelect.value];
+    const quantity = parseInt(quantityInput.value);
+    const materialPrice = prices.material[materialSelect.value];
+    const fabricPrice = prices.fabric[fabricSelect.value];
+    const totalPrice = (colorPrice + sizePrice + materialPrice + fabricPrice) * quantity;
+    
+    return totalPrice;
+  }
+  
+  // Update the total price whenever a user changes a selection
+  function updateTotalPrice() {
+    const totalPrice = calculateTotalPrice();
+    const formattedPrice = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(totalPrice);
+    
+    addToCartBtn.textContent = `Add to Cart (${formattedPrice})`;
+  }
+  
+  // Add event listeners to the form elements to update the total price
+  colorSelect.addEventListener('change', updateTotalPrice);
+  sizeSelect.addEventListener('change', updateTotalPrice);
+  quantityInput.addEventListener('input', updateTotalPrice);
+  materialSelect.addEventListener('change', updateTotalPrice);
+  fabricSelect.addEventListener('change', updateTotalPrice);
+  
+  // Update the total price initially
+  updateTotalPrice();
+</script>
+</body>
+</html>
