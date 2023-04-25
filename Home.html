@@ -6,19 +6,20 @@
 </head>
 <body>
     <header>
-    <h1>Welcome to Ting's Hanfu Clothing</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a>
-                <ul>
-                    <li><a href="#">Special Offers</a></li>
-                </ul>
-            </li>
-            <li><a href="customized.html">Customized</a></li>
-            <li><a href="checkout.html">Check Out</a></li>
-        </ul>
+        <h1>Welcome to Ting's Hanfu Clothing</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a>
+                    <ul>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li><a href="customized.html">Customized</a></li>
+                <li><a href="checkout.html">Check Out</a></li>
+            </ul>
     </nav>
-</header>
+    </header>
     <main>
         <section class="product">
             <div class="image-column">
@@ -63,5 +64,20 @@
     <footer>
         <p>&copy; 2023 Ting's Hanfu Clothing</p>
     </footer>
+    <script>
+        // Get all the dropdown menu links
+        var dropdownLinks = document.querySelectorAll('nav ul li ul li a');
+
+        // Add a click event listener to each link
+        dropdownLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                // Prevent the default behavior of the link
+                e.preventDefault();
+
+                // Redirect to the link's URL
+                window.location.href = link.getAttribute('href');
+            });
+        });
+    </script>
 </body>
 </html>
